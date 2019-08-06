@@ -1,0 +1,23 @@
+#!python3
+#打印表格
+tableDate = [
+    ['apple','oranges','cherries','banana'],
+    ['Alice','Bob','Carol','David'],
+    ['dogs','cats','moose','goose']]
+def printTable(table):
+    colWidths = [0]*len(table)
+    for i in range(len(table)):
+        for j in range(len(table[i])):
+            if colWidths[i] < len(table[i][j]):
+                colWidths[i] = len(table[i][j])
+    lenth = 0
+    for i in range(len(colWidths)):
+        if lenth < colWidths[i]:
+            lenth = colWidths[i]
+    lenth += 1
+    lines = ['']*len(table[0])
+    for line in range(len(lines)):
+        for column in range(len(table)):
+            lines[line] += table[column][line].rjust(lenth)
+    print('\n'.join(lines))
+printTable(tableDate)

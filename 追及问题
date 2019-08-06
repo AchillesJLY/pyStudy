@@ -1,0 +1,27 @@
+# 从前有一个农夫，他的名字叫做约翰。他养了很多很多头母牛。突然有一天，一只调皮的母牛走丢了，农夫要尽快的抓住她，不然她就又跑掉了！
+# 现在我们将问题简单化。假设农夫和母牛都站在一条数轴上，农夫开始的位置为N，母牛的位置为K。
+# 约翰有三种行动方式，每行动一次需要一秒钟时间，假设农夫的现在的位置为X，他可以向前走一格到X+1，也可以向后走一格走到X-1，他还可以传送！一下子走到了2*X。
+# 那么我们的问题是，假设母牛不会动，农夫最少需要多少秒才能抓到母牛？
+# 输入：输入包括两个整数，用空格隔开，分别为N和K。其中0<=N,K<=100000。
+# 输出：一个整数T，代表农夫所需的最少时间。
+
+while True:
+    try:
+        n = int(input('Enter the position of farmer: '))
+        k = int(input('Enter the position of cow: '))
+        break
+    except ValueError:
+        print('Please enter integrities.')
+t = 0
+while n <= k/2:
+    if n == 0:
+        n += 1
+        t += 1
+    if k % 2 == 1:
+        k -= 1
+    else:
+        k = k / 2
+    t += 1
+t += k - n
+
+print('Farmer would take %s seconds to catch the cow at least.' %(int(t)))

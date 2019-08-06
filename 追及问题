@@ -5,6 +5,7 @@
 # 输入：输入包括两个整数，用空格隔开，分别为N和K。其中0<=N,K<=100000。
 # 输出：一个整数T，代表农夫所需的最少时间。
 
+# 这题错了，还需要再研究
 while True:
     try:
         n = int(input('Enter the position of farmer: '))
